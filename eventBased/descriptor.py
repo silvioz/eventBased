@@ -1,5 +1,4 @@
 import numpy as np
-
 class signalDescriptor:
 	def __init__(self, t = None, v = None, freq = 64 ):
 		if t is not None and v is not None:
@@ -194,9 +193,10 @@ class signalDescriptor:
 		return fSh
 
 class signalDescriptorVector:
-	def __init__(self,dim,t = None, v = None, freq = 64):
+	def __init__(self,dim,t = None, v = None, freq = 50):
 		self.signals = []
-		if t != None:
+		self.dimTot = dim
+		if t != None and type(t) == list:
 			assert(v != None)
 			assert(len(t) == len(v))
 			assert(len(t) == dim)
